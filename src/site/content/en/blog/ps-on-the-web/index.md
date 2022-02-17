@@ -1,12 +1,15 @@
 ---
 layout: post
 title: Photoshop's journey to the web
+subhead: >
+  The idea of running software as complex as Photoshop directly in the browser would have been hard to imagine just a few years ago. However, by using various new standardized web technologies, Adobe has now brought a public beta of Photoshop to the web.
 authors:
   - nattestad
   - nabeelalshamma
 description: >
   Over the last three years, Chrome has been working to empower web applications that want to push the boundaries of what's possible in the browser. One such web application has been Photoshop. The idea of running software as complex as Photoshop directly in the browser would have been hard to imagine just a few years ago. However, by using various new standardized web technologies, Adobe has now brought a public beta of Photoshop to the web.
 date: 2021-10-26
+updated: 2022-02-14
 hero: image/8WbTDNrhLsU0El80frMBGE4eMCD3/pYiISdhsJe3oEL871Dqp.png
 alt: A part of Photoshop's user interface.
 tags:
@@ -58,7 +61,7 @@ Be sure to check out the [authoritative guide on how to utilize WebAssembly Debu
 
 ## High performance storage
 
-Given how large Photoshop documents can be, a critical need for Photoshop is the ability to dynamically move data from on-disk to in-memory as the user pans around. On other platforms, this is accomplished usually through memory mapping via [`mmap`](https://en.wikipedia.org/wiki/Mmap), but this hasn't been performantly possible on the web—that is until origin private file system access handles were developed and implemented as an origin trial! You can read how to leverage this new API [in the documentation](https://web.dev/file-system-access/#accessing-files-optimized-for-performance-from-the-origin-private-file-system).
+Given how large Photoshop documents can be, a critical need for Photoshop is the ability to dynamically move data from on-disk to in-memory as the user pans around. On other platforms, this is accomplished usually through memory mapping via [`mmap`](https://en.wikipedia.org/wiki/Mmap), but this hasn't been performantly possible on the web—that is until origin private file system access handles were developed and implemented as an origin trial! You can read how to leverage this new API [in the documentation](/file-system-access/#accessing-files-optimized-for-performance-from-the-origin-private-file-system).
 
 ## P3 color space for canvas
 
@@ -72,6 +75,16 @@ Photoshop is a famously large and feature-rich application, with hundreds of UI 
 To meet this challenge, Adobe turned to [Web Components](https://developer.mozilla.org/docs/Web/Web_Components) and the [Lit library](https://lit.dev). Photoshop's UI elements come from Adobe's [Spectrum Web Components](https://opensource.adobe.com/spectrum-web-components/) library, a lightweight, performant implementation of the Adobe design system that works with any framework, or no framework at all.
 
 What's more, the entire Photoshop app is built using Lit-based Web Components. Leaning on the browser's built-in component model and Shadow DOM encapsulation, the team found it easy to cleanly integrate a few "islands" of React code provided by other Adobe teams.
+
+## Service worker caching with Workbox
+
+[Service workers](https://developer.mozilla.org/docs/Web/API/Service_Worker_API) act as a programmable local proxy, intercepting network requests and responding with data from the network, long-lived caches, or a mixture of both.
+
+As part of the [V8](https://v8.dev/) team's efforts to improve performance, the first time a service worker responds with a cached WebAssembly response, Chrome generates and stores an optimized version of the code—even for multi-megabyte WebAssembly scripts, which are common in the Photoshop codebase. A similar precompilation takes place when [JavaScript is cached](https://v8.dev/blog/code-caching-for-devs#use-service-worker-caches) by a service worker during its [`install` step](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#install). In both cases, Chrome is able to load and execute the optimized versions of cached scripts with minimal runtime overhead.
+
+Photoshop on the web takes advantage of this by deploying a service worker that precaches many of its JavaScript and WebAssembly scripts. Because the URLs for these scripts are generated at build time, and because the logic of keeping caches up to date can be complex, they turned to a set of libraries maintained by Google called [Workbox](https://developers.google.com/web/tools/workbox/) to generate their service worker as part of their build process.
+
+A Workbox-based service worker along with the V8 engine's script caching led to measurable performance improvements. The specific numbers vary based on the device executing the code, but the team estimates these optimizations decreased the time spent on code initialization by 75%.
 
 ## What's next for Adobe on the web
 

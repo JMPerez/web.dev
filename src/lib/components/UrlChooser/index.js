@@ -35,7 +35,9 @@ class UrlChooser extends BaseElement {
         class="lh-report-header-enterurl ${this.disabled ? 'lh-running' : ''}"
       >
         <div class="lh-enterurl lh-enterurl--selected">
-          <div class="lh-enterurl__url">${this.url}</div>
+          <div class="lh-enterurl__url">
+            <p>${this.url}</p>
+          </div>
           <web-progress-bar></web-progress-bar>
         </div>
         <div class="lh-enterurl lh-enterurl--switch">
@@ -176,7 +178,7 @@ class UrlChooser extends BaseElement {
       return;
     }
     if (!url.startsWith('https://') && !url.startsWith('http://')) {
-      url = `http://${url}`;
+      url = `https://${url}`;
     }
     if (url !== this._urlInput.value && this._urlInput) {
       this._urlInput.value = url;

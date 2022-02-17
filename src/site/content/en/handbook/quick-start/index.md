@@ -11,7 +11,7 @@ Most of the following information is relevant to both sites.
 
 ## Planning
 
-1. Decide if you want your post on [web.dev](https://web.dev) or [developer.chrome.com](https://developer.chrome.com). [More about the right site for your post](/handbook/writing-blog-posts#which-site).
+1. Decide if you want your post on [web.dev](/) or [developer.chrome.com](https://developer.chrome.com). [More about the right site for your post](/handbook/writing-blog-posts#which-site).
 1. If you're a Googler or have access to a Googler, use the [content proposal form][form] to submit
    your new content request. If you don't have access to a Googler, use the
    [content issue template](https://github.com/GoogleChrome/web.dev/issues/new?template=propose-new-content.md).
@@ -60,10 +60,10 @@ If applicable, launch translation process for this content by emailing web.dev@.
 ### Tags
 
 Tags are used to categorize articles and also to generate [web.dev/tags](/tags/) pages.
-The canonical list of tags is published in [tagsData.json](https://github.com/GoogleChrome/web.dev/blob/main/src/site/_data/tagsData.json) on Github.
+The canonical list of tags is published in [tagsData.json](https://github.com/GoogleChrome/web.dev/blob/main/src/site/_data/tagsData.json) on GitHub.
 
 - to add a new tag, add it first to `tagsData.json`
-- to use an existing tag, add it to your article's `fromtmatter`:
+- to use an existing tag, add it to your article's `frontmatter`:
 ```bash
 tags:
   - accessibility

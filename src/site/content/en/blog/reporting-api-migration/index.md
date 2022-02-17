@@ -17,9 +17,9 @@ tags:
   - security
 ---
 
-{% Banner 'caution', 'body' %} This post covers how to migrate to the new version of the Reporting
+{% Aside 'caution' %} This post covers how to migrate to the new version of the Reporting
 API (v1). If you're new to the Reporting API or need detailed usage examples, head over to the [main
-post on the Reporting API](/reporting-api) instead. {% endBanner %}
+post on the Reporting API](/reporting-api) instead. {% endAside %}
 
 The [Reporting API](/reporting-api) informs you about errors that happen across your site as visitors use it. It gives
 you visibility on browser interventions, browser crashes, Content-Security-Policy violations,
@@ -54,11 +54,11 @@ Keep reading for details and example code!
 
 ## Network Error Logging
 
-{% Banner 'caution', 'body' %}
+{% Aside 'caution' %}
 
 If you use [Network Error Logging](https://w3c.github.io/network-error-logging/), continue using
 `Report-To` (v0) because Network Error Logging isn't supported in the Reporting API v1.
-{% endBanner %}
+{% endAside %}
 
 A new mechanism for Network Error Logging will be developed. Once that becomes available, switch from Reporting API v0 to that new mechanism.
 
@@ -134,8 +134,8 @@ All differences between v0 and v1
 
 {% endDetailsSummary %}
 
-<div class="w-table-wrapper">
-  <table class="w-table--top-align">
+<div>
+  <table data-alignment="top">
     <thead>
       <tr>
         <th></th>
@@ -178,10 +178,10 @@ All differences between v0 and v1
       </tr>
       <tr>
         <td>Report scope</td>
-        <td>Origin.<br/> A document's <code>Report-To</code> header affects other documents (pages) from that origin. 
+        <td>Origin.<br/> A document's <code>Report-To</code> header affects other documents (pages) from that origin.
         The <code>url</code> field of a report still varies per-document.
         </td>
-        <td>Document.<br/> A document's <code>Reporting-Endpoints</code> header only affects that document. 
+        <td>Document.<br/> A document's <code>Reporting-Endpoints</code> header only affects that document.
         The <code>url</code> field of a report still varies per-document.
       </tr>
       <tr>

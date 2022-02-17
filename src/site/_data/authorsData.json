@@ -879,7 +879,7 @@
     "country": "US",
     "twitter": "tropicadri",
     "github": "tropicadri",
-    "image": "image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg"
+    "image": "image/SeARmcA1EicLXagFnVOe0ou9cqK2/fSWKElF58iFEzXGkfOj9.jpg"
   },
   "jbrockmeyer": {
     "twitter": "jan_brockmeyer",
@@ -1093,5 +1093,92 @@
     "twitter": "brendankenny",
     "github": "brendankenny",
     "image": "image/MtjnObpuceYe3ijODN3a79WrxLU2/sWOfAs4f2WyQMMF9xt1A.jpg"
+  },
+  "alexandrawhite": {
+     "country": "US",
+     "github": "heyawhite",
+     "twitter": "heyawhite",
+     "image": "image/VbsHyyQopiec0718rMq2kTE1hke2/tKKMrgVB852NNd1UMRzN.png"
+   },
+  "svenmay": {
+    "country": "DE",
+    "github": "Svenmay",
+    "image": "image/dB6B4Sr8kaaT0KZujRBFC303oFR2/FAG5C2RsJyDw1Ap2DGBw.jpg"
+  },
+  "denisstasyev": {
+    "country": "RU",
+    "github": "denisstasyev",
+    "image": "image/dB6B4Sr8kaaT0KZujRBFC303oFR2/GcmQMuJs1yvVmFILU3Xw.jpg"
+  },
+  "lozandier": {
+    "twitter": "KevinLozandier",
+    "github": "lozandier",
+    "linkedin": "KevinLozandier",
+    "country": "US",
+    "image": "image/bMU6K5O6Yce7QrxAoaF3hsleaRM2/juyWJB261DOLBT16GyMa.png"
+  },
+  "mobtec": {
+    "twitter": "mobtec",
+    "linkedin": "guilhermems",
+    "country": "BR",
+    "image": "image/26V1DWN36MZr3mUo8ChSBlCpzp43/wYWiAqwJid6lXBpotD6h.jpeg"
+  },
+  "maurizioparadisi": {
+    "country": "IT",
+    "linkedin": "https://www.linkedin.com/in/maurizio-paradisi-74422a79",
+    "image": "image/JsqezhaeRldmuGd4UREN7n3ydds2/sv3bdC9e1dS95RsYAk2Y.jpg"
+  },
+  "anshusharma": {
+    "country": "IN",
+    "image": "image/jL3OLOhcWUQDnR4XjewLBx4e3PC3/oNcJwYe68di724tSCBj8.png",
+    "linkedin": "anshusharma1983"
+  },
+  "sumitgugnani": {
+    "country": "IN",
+    "image": "image/jL3OLOhcWUQDnR4XjewLBx4e3PC3/dDPYVsbbwF8sz0ZM5bBg.png",
+    "linkedin": "sumit-gugnani-a187203"
+  },
+  "prashantmishra": {
+    "country": "IN",
+    "image": "image/jL3OLOhcWUQDnR4XjewLBx4e3PC3/vTeW4U9wTuLr8QmYoGxX.png",
+    "github": "prash-mi"
+  },
+  "joshuagrossberg": {
+    "country": "US",
+    "linkedin": "https://www.linkedin.com/in/joshua-grossberg-148b7a14",
+    "image": "image/VbsHyyQopiec0718rMq2kTE1hke2/ghjO05jRwr6p0GPCA8sQ.jpg"
+  },
+  "nsull": {
+    "country": "US",
+    "twitter": "stubbornella",
+    "image": "image/kheDArv5csY6rvQUJDbWRscckLr1/gjyoj6pRzTfjLXfU7589.jpeg"
+  },
+  "danielasy": {
+    "country": "BR",
+    "github": "danielasy",
+    "linkedin": "https://www.linkedin.com/in/danielayassuda/",
+    "image": "image/jL3OLOhcWUQDnR4XjewLBx4e3PC3/GglXoaMdqB9PTnUieTSH.jpg"
+  },
+  "arthursonzogni": {
+    "country": "FR",
+    "twitter": "arthursonzogni",
+    "github": "ArthurSonzogni",
+    "homepage": "https://arthursonzogni.com/",
+    "image": "image/VbsHyyQopiec0718rMq2kTE1hke2/McVMXjWzmTFo66lqFLms.jpg"
+  },
+  "chrispalmer": {
+    "country": "US",
+    "image": "image/kheDArv5csY6rvQUJDbWRscckLr1/7OUAnF3abartcOzqxQqi.jpeg"
+  },
+  "abeyad": {
+    "country": "US",
+    "twitter": "alibeyad",
+    "github": "abeyad",
+    "image": "image/BLBNCWcM57UxCqJ0LsNECuVCaxD2/GR8cNgtWyPyXDqI4d61Q.jpeg"
+  },
+  "karldubost": {
+    "github": "karlcow",
+    "homepage": "https://www.otsukare.info",
+    "image": "image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/dsNUPCYy6gvrU9EEAhaI.jpeg"
   }
 }

@@ -1,6 +1,8 @@
 ---
 layout: 'default-next'
 CSS_ORIGIN: 'next'
+pageScripts:
+  - '/js/home.js'
 ---
 {% from 'macros/icon.njk' import icon with context %}
 
@@ -12,7 +14,7 @@ CSS_ORIGIN: 'next'
         <div>
           <span aria-hidden="true" class="hero__eyebrow">{{ intro.eyebrow }}</span>
           <div class="hero__content flow">
-            <img src="{{ intro.image }}" alt="" aria-hidden="true" class="hero__decor" width="{{ intro.imageWidth }}" height="{{ intro.imageHeight }}" />
+            <img importance="high" src="{{ intro.image }}" alt="" aria-hidden="true" class="hero__decor" width="{{ intro.imageWidth }}" height="{{ intro.imageHeight }}" />
             <h1 class="hero__title">{{ intro.title }}</h1>
             {{ intro.summary | md | safe }}
             <a class="button" data-type="primary" href="{{ intro.buttonUrl }}">{{ intro.buttonText }}</a>
@@ -22,7 +24,7 @@ CSS_ORIGIN: 'next'
           <a class="feature-card" href="{{ featureCard.url }}" data-theme="{{ featureCard.theme }}" data-treatment="illustration">
             <span class="feature-card__eyebrow">{{ featureCard.eyebrow }}</span>
             <h3 class="{{ 'visually-hidden' if featureCard.hiddenTitle else 'feature-card__title' }}">{{ featureCard.title }}</h3>
-            <img class="feature-card__background" loading="lazy" alt="" aria-hidden="true" src="{{ featureCard.background }}" />
+            <img importance="high" class="feature-card__background" alt="" aria-hidden="true" src="{{ featureCard.background }}" />
           </a>
           {% include "partials/picked-case-study.njk" %}
         </div>
@@ -32,7 +34,7 @@ CSS_ORIGIN: 'next'
   {# Hero ends #}
 
   {# Promo panel starts #}
-  {% if promoPanel %}
+  {# {% if promoPanel %}
     <article class="hero" data-type="promo">
       <div class="wrapper">
         <div class="hero__columns switcher" data-direction="rev">
@@ -48,16 +50,18 @@ CSS_ORIGIN: 'next'
             </div>
           </div>
           <div>
-            <img src="{{ promoPanel.image }}" alt="" aria-hidden="true" class="hero__decor" width="{{ promoPanel.imageWidth }}" height="{{ promoPanel.imageHeight }}" />
+            <img importance="high" src="{{ promoPanel.image }}" alt="" aria-hidden="true" class="hero__decor" width="{{ promoPanel.imageWidth }}" height="{{ promoPanel.imageHeight }}" />
           </div>
         </div>
       </div>
     </article>
-  {% endif %}
+  {% endif %} #}
   {# Promo panel ends #}
 
+  {# Optional divider between promo (if both enabled) #}
+  {# <hr /> #}
+
   {# Page speed starts #}
-  {# <hr />
   <article class="hero bg-core-bg homepage__page-speed-hero">
     <div class="wrapper">
       <div class="hero__columns switcher" data-direction="rev">
@@ -77,7 +81,7 @@ CSS_ORIGIN: 'next'
         </div>
       </div>
     </div>
-  </article> #}
+  </article>
   {# Page speed ends #}
 
   {# Courses start #}
@@ -186,7 +190,7 @@ CSS_ORIGIN: 'next'
         </div>
       </div>
       <div class="homepage__shows gap-top-size-3">
-        <a class="homepage__show" href="https://web.dev/shows/designing-in-the-browser/">
+        <a class="homepage__show" href="/shows/designing-in-the-browser/">
           {% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/XXZm5qRstbVipZB9op3U.jpg", alt="Designer Vs Developer artwork", width="800", height="947", loading="lazy", class="homepage__show-bg" %}
           <div class="flow t-color-shades-light-bright">
             <p>Show</p>
@@ -207,5 +211,5 @@ CSS_ORIGIN: 'next'
   </div>
   {# Podcasts end #}
 
-  {% include 'partials/subscribe-next.njk' %}
+  {% include 'partials/subscribe.njk' %}
 </div>

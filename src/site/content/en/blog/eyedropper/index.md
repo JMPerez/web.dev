@@ -51,7 +51,7 @@ The EyeDropper API fills this gap by providing a way to sample colors from the s
 
 ## Current status {: #status }
 
-<div class="w-table-wrapper">
+<div>
 
 | Step                                     | Status                   |
 | ---------------------------------------- | ------------------------ |
@@ -60,6 +60,8 @@ The EyeDropper API fills this gap by providing a way to sample colors from the s
 | 3. Gather feedback & iterate on design   | [In progress](#feedback) |
 | 4. Origin trial                          | Complete                 |
 | 5. **Launch**                            | **Chromium&nbsp;95**<br/>(Desktop only.)             |
+
+</div>
 
 ## How to use the EyeDropper API {: #use }
 

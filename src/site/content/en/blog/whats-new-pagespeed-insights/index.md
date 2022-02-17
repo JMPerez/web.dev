@@ -1,11 +1,11 @@
 ---
-title: What's new in PageSpeed Insights and web.dev/measure
+title: What's new in PageSpeed Insights
 authors:
   - leenasohoni
   - addyosmani
   - egsweeny
-description: Learn about the latest in PageSpeed Insights and other performance tooling updates to help you better measure and optimize your page and site quality.
-subhead: Learn about the latest in PageSpeed Insights and other performance tooling updates to help you better measure and optimize your page and site quality.
+description: Learn about the latest in PageSpeed Insights to help you better measure and optimize your page and site quality.
+subhead: Learn about the latest in PageSpeed Insights to help you better measure and optimize your page and site quality.
 date: 2021-11-03
 hero: image/1L2RBhCLSnXjCnSlevaDjy3vba73/6zX4bWZp46B9dGbMHhb4.jpeg
 alt: A photo of a Chevrolet Corvette Speedometer.
@@ -43,8 +43,7 @@ report. Our primary goals were to:
 +   Modernize the look and feel of PSI, leveraging [Material Design](https://material.io/design).
 
 This post introduces the new features in PSI which will be released later this
-year. We will also discuss how PSI will now converge with another popular speed
-tool—[web.dev/measure](/measure/). 
+year. 
 
 ## What's new?
 
@@ -68,16 +67,16 @@ If you don't know the difference between lab and field data, check
 out the [explainer on web.dev](/how-to-measure-speed/).
 {% endAside %}
 
-<figure class="w-figure">
-{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/jM0GYMrQZcPymVXdLOLP.png", alt="discover what your real users are experiencing", width="800", height="436", class="w-screenshot" %}
-  <figcaption class="w-figcaption">
+<figure>
+{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/jM0GYMrQZcPymVXdLOLP.png", alt="discover what your real users are experiencing", width="800", height="436" %}
+  <figcaption>
     Section for field data
   </figcaption>
 </figure>
 
-<figure class="w-figure">
-{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/wQ9RGcJAcBBc4SUDK7Dz.png", alt="Diagnose performance issues", width="800", height="355", class="w-screenshot" %}
-  <figcaption class="w-figcaption">
+<figure>
+{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/wQ9RGcJAcBBc4SUDK7Dz.png", alt="Diagnose performance issues", width="800", height="355" %}
+  <figcaption>
     Section for lab data
   </figcaption>
 </figure>
@@ -105,16 +104,16 @@ desktop centrally on the report page. The links are now easily visible and
 distinctly indicate the platform for which the data is being shown. Doing this
 also helped make the navigation bar cleaner.
 
-<figure class="w-figure">
-  {% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/hEv5XuTeVV98Z3AS59bQ.png", alt="Older (at the time of writing) version of PageSpeed Insights", width="800", height="97", class="w-screenshot" %}
-  <figcaption class="w-figcaption">
+<figure>
+  {% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/hEv5XuTeVV98Z3AS59bQ.png", alt="Older (at the time of writing) version of PageSpeed Insights", width="800", height="97" %}
+  <figcaption>
     PSI mobile and desktop labels before
   </figcaption>
 </figure>
 
-<figure class="w-figure">
-  {% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/vi5j7ouZtmWwqN9BRsUD.png", alt="Newer version of the navigation bar", width="800", height="149", class="w-screenshot" %}
-  <figcaption class="w-figcaption">
+<figure>
+  {% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/vi5j7ouZtmWwqN9BRsUD.png", alt="Newer version of the navigation bar", width="800", height="149" %}
+  <figcaption>
         PSI mobile and desktop labels after
   </figcaption>
 </figure>
@@ -126,7 +125,7 @@ The Origin Summary, which provides the aggregated CrUX score for all pages from
 the origin, currently appears on click of a checkbox. We have moved this report
 section to a new tab, "Origin", under the Field Data section.
 
-{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/5Kn5meWq0sWwCLT69lMb.png", alt="Origin summary for the new PageSpeed Insights refresh.", width="800", height="381", class="w-screenshot" %}
+{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/5Kn5meWq0sWwCLT69lMb.png", alt="Origin summary for the new PageSpeed Insights refresh.", width="800", height="381" %}
 
 ### Additional helpful information
 
@@ -144,7 +143,7 @@ This information should enhance the distinction between lab and field data and
 help users who have previously been uncertain how the two data sources (lab and
 field) might differ. 
 
-{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/jVxqisC0x6I5viUGgjAD.png", alt="Enhanced section of information sharing data about field and lab sampling and configuration data", width="800", height="368", class="w-screenshot" %}
+{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/jVxqisC0x6I5viUGgjAD.png", alt="Enhanced section of information sharing data about field and lab sampling and configuration data", width="800", height="368" %}
 
 ### Expand view
 
@@ -160,44 +159,38 @@ We have removed the image of the loaded page, which appears right next to the
 field data. The image and thumbnails of the page displaying the loading sequence
 will both be available in the lab data section.
 
-{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/dnIsJA35tj7vs6qgybRM.png", alt="Loaded page image next to the lab data.", width="800", height="444", class="w-screenshot" %}
+{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/dnIsJA35tj7vs6qgybRM.png", alt="Loaded page image next to the lab data.", width="800", height="444" %}
 
 For up to date product documentation, visit
 [https://developers.google.com/speed/docs/insights/.](https://developers.google.com/speed/docs/insights/v5/about)
 
-## Updates to web.dev/measure
+## Updates to web.dev/measure 
 
-To reduce variance between the different tools in our performance toolbox, we
-are also introducing an updated version of
-[web.dev/measure](/measure). As a reminder, PageSpeed Insights is
-a tool for measuring the performance and Core Web Vitals of a page (with lab and
-field data), while web.dev/measure measures page quality more broadly and only
-provides lab data. In the future, Measure will be directly powered by the
-[PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started).
+To reduce inconsistency between the different tools in our performance toolbox, 
+we are also updating [web.dev/measure](/measure) to be directly powered by the [PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started).
 
-Previously, developers would run reports via both the PSI tool and
-[web.dev/measure](/measure) and see different Lighthouse numbers.
-One of the main reasons for differences was because
-[web.dev/measure](/measure) originated all tests from the U.S. 
+Previously, developers would run reports via both the PSI tool and /measure 
+and see different Lighthouse numbers. One of the main reasons for differences 
+was because /measure originated all tests from the U.S. (due to it previously 
+having a cloud backend that was US-based).
 
-With [web.dev/measure](/measure) using the same API as the PSI UI,
-developers will get a consistent experience when using PSI or
-[web.dev/measure](/measure). We have also made a few tweaks to /measure
-based on how users use the tool. As a result, the signed-in experience for
-/measure will be going away, but the most often used part—seeing multiple
-categories—will stay. 
+With /measure calling the same API directly as the PSI UI, developers will get
+ a more consistent experience when using PSI and /measure. We have also made 
+ a few tweaks to /measure based on how users use the tool. This means that the 
+ signed-in experience for /measure will be going away, but the most used 
+ functionality—seeing multiple categories—will still be available for use.
 
 
-<figure class="w-figure">
-  {% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/KFZmLMU2iSxkPDph7FTV.png", alt="The old version of the measure page.", width="800", height="377", class="w-screenshot" %}
-  <figcaption class="w-figcaption">
+<figure>
+  {% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/KFZmLMU2iSxkPDph7FTV.png", alt="The old version of the measure page.", width="800", height="377" %}
+  <figcaption>
     web.dev/measure before
   </figcaption>
 </figure>
 
-<figure class="w-figure">
-  {% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/C04zQEkxtSQqPEQedNN7.png", alt="The refreshed version of the measure tool focusing on offering page quality measurement.", width="800", height="696", class="w-screenshot" %}
-  <figcaption class="w-figcaption">
+<figure>
+  {% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/C04zQEkxtSQqPEQedNN7.png", alt="The refreshed version of the measure tool focusing on offering page quality measurement.", width="800", height="696" %}
+  <figcaption>
     web.dev/measure after
   </figcaption>
 </figure>
@@ -225,7 +218,7 @@ dataset, provides insights into the real-world user experience. The data
 includes metrics such as [First Contentful Paint](/fcp/) (FCP),
 and measures Core Web Vitals  ([First Input Delay](/fid/) (FID),
 [Largest Contentful Paint](/lcp/) (LCP), and [Cumulative Layout
-Shift](/cls/) (CLS)). Along with the metric values, you can also
+Shift](/cls/) (CLS). Along with the metric values, you can also
 see the distribution of pages where the value of a particular metric was Good,
 Needs Improvement, or Poor, indicated by green, amber, and red bars,
 respectively. The distribution and scores are shown based on page loads for
@@ -233,7 +226,7 @@ users in the CrUX dataset. Scores are calculated for the last 28 days and are
 not available for new pages where sufficient real-user data may not be
 available.
 
-{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/A7xrSBFuqf9puSgBJH4l.png", alt="breakdown of different sections of data in the current PageSpeed Insight report", width="800", height="497", class="w-screenshot" %}
+{% Img src="image/1L2RBhCLSnXjCnSlevaDjy3vba73/A7xrSBFuqf9puSgBJH4l.png", alt="breakdown of different sections of data in the current PageSpeed Insight report", width="800", height="497" %}
 
 **Origin Summary:** Users can click on the _Show Origin Summary_ checkbox to
 view the aggregated score for the metrics for all pages served from the same
@@ -245,7 +238,7 @@ shows the performance using metrics like[First Contentful
 Paint](/fcp/), [Largest Contentful Paint](/lcp/),
 [Speed Index](/speed-index/), [Cumulative Layout
 Shift](/cls/), [Time to
-Interactive](/interactive/), and [Total Blocking
+Interactive](/tti/), and [Total Blocking
 Time](/tbt/). Each metric is
 [scored](/performance-scoring/) and labeled with an icon
 indicating Good, Needs improvement, or Poor. This section provides a good
@@ -272,3 +265,7 @@ insights included in it.
 For more details on performance tooling updates, watch the keynote for [Chrome
 Dev Summit 2021](https://developer.chrome.com/devsummit/schedule/keynote/). 
 We will keep you posted on the release date for PSI and the changes to web.dev/measure.
+
+*With thanks to Milica Mihajlija, Philip Walton, Brendan Kenny and 
+Ewa Gasperowicz for their feedback on this article*
+

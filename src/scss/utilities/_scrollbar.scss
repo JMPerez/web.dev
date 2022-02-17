@@ -6,14 +6,19 @@
 }
 
 .scrollbar::-webkit-scrollbar {
-  height: 4px;
+  height: 8px;
 }
 
 .scrollbar::-webkit-scrollbar-track {
-  @include apply-utility('bg', 'core-bg');
+  border-radius: 10px;
+  border: 1px solid get-utility-value('bg', 'stroke');
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
   border-radius: 10px;
   @include apply-utility('bg', 'stroke');
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  @include apply-utility('bg', 'action-bg-hover');
 }

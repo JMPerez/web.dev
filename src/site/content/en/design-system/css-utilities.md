@@ -2,6 +2,7 @@
 title: 'CSS Utilities'
 permalink: '/design-system/css-utilities/index.html'
 layout: 'design-system-documentation.njk'
+summary: 'Flexible utilities that solve common UI problems, using the [CUBE CSS utilities principles](https://cube.fyi/utility.html).'
 ---
 
 ## All center
@@ -115,6 +116,29 @@ chunks/sections/regions of content.
 <div class="region">I have consistent space now.</div>
 ```
 
+## Over Scroll
+
+Provides a container that _contains_ overflowing content. This should be sized externally, either with [flex basis](https://piccalil.li/tutorial/build-a-responsive-media-browser-with-css/#heading-making-the-nav-shrinkable), or with units, like the example below.
+
+```html
+<div class="over-scroll" style="max-height: 10rem">
+  <p>
+    Leo malesuada nibh sed quam curae sollicitudin laoreet aptent fermentum
+    tristique elit feugiat ultricies eget pulvinar rutrum venenatis turpis
+    integer neque blandit aliquet morbi ligula risus hendrerit inceptos metus
+    senectus mollis convallis vulputate scelerisque dictum vehicula etiam massa
+    justo
+  </p>
+  <p>
+    Leo malesuada nibh sed quam curae sollicitudin laoreet aptent fermentum
+    tristique elit feugiat ultricies eget pulvinar rutrum venenatis turpis
+    integer neque blandit aliquet morbi ligula risus hendrerit inceptos metus
+    senectus mollis convallis vulputate scelerisque dictum vehicula etiam massa
+    justo
+  </p>
+</div>
+```
+
 ## Scrollbar
 
 Provides a scrollbar only if there is overflow content. This utility only provides the scrollbar and **not** the rule which determines which direction scrolling occurs (`overflow-x`, `overflow-y`, `overflow`), so the element that this is applied to needs to deal with that.
@@ -155,4 +179,10 @@ width and **no gutter**.
 
 ```html
 <div class="wrapper" data-size="narrow">I am a reduced width wrapper</div>
+```
+
+You can also remove inline padding by adding `data-flush`.
+
+```html
+<div class="wrapper" data-flush>I am a flush wrapper</div>
 ```

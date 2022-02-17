@@ -15,10 +15,11 @@ export async function runPsi(url) {
     'ACCESSIBILITY',
     'BEST_PRACTICES',
     'PERFORMANCE',
-    'PWA',
+    // 'PWA', // Disable until installability results are correct. https://crbug.com/1267022#c7
     'SEO',
   ];
   const params = new URLSearchParams();
+  params.append('strategy', 'MOBILE');
   params.append('url', url);
   params.append('key', API_KEY);
   for (const category of categories) {

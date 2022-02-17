@@ -27,6 +27,7 @@ $global-prose-element-max-width: 50rem;
 /// MIXINS
 @import 'mixins/button-base-styles';
 @import 'mixins/card-base-styles';
+@import 'mixins/overflow-shadow';
 @import 'mixins/rounded-border';
 @import 'mixins/vertically-align-label';
 
@@ -119,7 +120,7 @@ ul:not([class]) {
   list-style: none;
   padding-inline-start: 1rem;
 
-  li::before {
+  > li::before {
     content: '';
     display: block;
     position: absolute;
@@ -130,7 +131,7 @@ ul:not([class]) {
     background: currentColor;
   }
 
-  li {
+  > li {
     padding-inline-start: 2ch;
   }
 }
@@ -139,7 +140,7 @@ ol:not([class]) {
   counter-reset: ol-list;
   padding-inline-start: 0.5rem;
 
-  li::before {
+  > li::before {
     content: counter(ol-list);
     display: flex;
     flex-direction: column;
@@ -157,7 +158,7 @@ ol:not([class]) {
     @include apply-utility('weight', 'medium');
   }
 
-  li {
+  > li {
     counter-increment: ol-list;
     padding-inline-start: 2.5rem;
   }
@@ -178,15 +179,33 @@ dd + dt {
 /// Blockquotes
 
 blockquote {
+  padding-left: 24px;
+
+  cite {
+    font-size: get-size('size-0');
+  }
+}
+
+blockquote::before {
+  content: '”';
+  @include apply-utility('font', 'brand');
+  font-size: get-size('size-4');
+  float: left;
+  margin: -6px 0 0 -24px;
+}
+
+blockquote[data-type=pullquote] {
+  padding-left: initial;
   font-size: get-size('size-3');
   text-align: center;
+  display: block;
 
   @include apply-utility('font', 'brand');
   @include apply-utility('leading', 'short');
 }
 
-blockquote,
-blockquote > * {
+blockquote[data-type=pullquote],
+blockquote[data-type=pullquote] > * {
   margin-inline: auto;
 
   @include apply-utility('measure', 'short');
@@ -196,33 +215,43 @@ blockquote > * {
 /// However, we want child elements to flow without
 /// having to add a class so in this instance, it
 /// can slide
-blockquote {
+blockquote[data-type=pullquote] {
   @extend .flow;
 }
 
 /// <q> elements are ideal, but we need to make sure
 /// any element is styled as a quote
-blockquote > *:not(:last-child)::before {
+
+blockquote[data-type=pullquote]::before {
+  content: '';
+  display: none;
+}
+
+blockquote[data-type=pullquote] > *:first-child::before {
   content: open-quote;
 }
 
-blockquote > *:not(:last-child)::after {
+blockquote[data-type=pullquote] > *:nth-last-child(2)::after {
+  content: close-quote;
+}
+
+blockquote[data-type=pullquote] > *:last-child:not(cite)::after {
   content: close-quote;
 }
 
 /// It's best to reset content rather than
 /// add quotes only to the first-child, because
 /// quotes might actually be multiline
-blockquote > cite::before,
-blockquote > cite::after {
+blockquote[data-type=pullquote] > cite::before,
+blockquote[data-type=pullquote] > cite::after {
   content: unset;
 }
 
-/// Make sure figcaptions are central with the blockquote
+/// Make sure figcaptions are central with the blockquote[data-type=pullquote]
 /// when they appear in the same <figure> context.
 // Same applies to cites
-figure > blockquote ~ figcaption,
-blockquote cite {
+figure > blockquote[data-type=pullquote] ~ figcaption,
+blockquote[data-type=pullquote] cite {
   margin-inline: auto;
   display: block;
   font-style: normal;
@@ -236,12 +265,13 @@ blockquote cite {
 
 caption,
 figcaption {
-  margin-inline: auto;
   font-style: italic;
-  text-align: center;
+  text-align: start;
+  font-size: get-size('size-0');
 
   @include apply-utility('measure', 'short');
-  @include apply-utility('gap-top', 'size-1');
+  @include apply-utility('color', 'mid-text');
+  @include apply-utility('gap-top', 'base');
 
   code {
     white-space: nowrap;
@@ -254,13 +284,11 @@ table {
   max-width: 100%;
   min-width: 50%;
   border-spacing: 0;
-
-  @include rounded-border();
 }
 
 th,
 td {
-  padding: 0.5em;
+  padding: 0.8em 0.5em;
   text-align: left;
   border-collapse: collapse;
 }
@@ -280,6 +308,13 @@ caption {
 table ul:not([class]),
 table ol:not([class]) {
   margin: 0;
+}
+
+/// Code in tables
+table code {
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 /// Cell alignment
@@ -360,6 +395,7 @@ h6 code,
   margin: 0;
   padding: 0;
   white-space: normal;
+  word-break: break-all;
 }
 
 /// Sub and sup
@@ -599,9 +635,16 @@ video {
   max-width: 100%;
 }
 
+/// Selects images that are likely to have a transparent BG and applies a
+/// theme-driven mask to them
+img[src$='.svg'],
+img[src$='.png'] {
+  background-color: get-utility-value('bg', 'transparent-img-mask');
+}
+
 /// Links
 
-a:link {
+a {
   color: var(--color-highlight-text);
 }
 
@@ -645,13 +688,22 @@ web-copy-code {
   display: block;
 }
 
+/// Video related elements
+video,
+.youtube {
+  position: relative;
+  aspect-ratio: 16/9;
+}
+
 /// COMPOSITIONS
 @import 'compositions/auto-grid';
+@import 'compositions/breakout';
 @import 'compositions/cluster';
 @import 'compositions/reel';
 @import 'compositions/repel';
 @import 'compositions/sidebar';
 @import 'compositions/switcher';
+@import 'compositions/wide-card-index';
 
 /// BLOCKS
 @import 'blocks/aside';
@@ -662,6 +714,7 @@ web-copy-code {
 @import 'blocks/breadcrumbs';
 @import 'blocks/browser-compat';
 @import 'blocks/button';
+@import 'blocks/callout';
 @import 'blocks/card';
 @import 'blocks/carousel';
 @import 'blocks/compare';
@@ -669,8 +722,11 @@ web-copy-code {
 @import 'blocks/eyebrow';
 @import 'blocks/fab';
 @import 'blocks/feature-card';
+@import 'blocks/figure';
+@import 'blocks/fixed-width-img';
 @import 'blocks/headline';
 @import 'blocks/hero';
+@import 'blocks/hero-image';
 @import 'blocks/icon-button';
 @import 'blocks/indicator';
 @import 'blocks/label';
@@ -692,17 +748,25 @@ web-copy-code {
 @import 'blocks/tooltip';
 
 /// WEB COMPONENTS
+@import 'web-components/web-assessment';
 @import 'web-components/web-audio-fab';
+@import 'web-components/web-codelab';
 @import 'web-components/web-copy-code';
 @import 'web-components/web-navigation-drawer';
+@import 'web-components/web-search';
+@import 'web-components/web-select-group';
+@import 'web-components/web-snackbar';
 @import 'web-components/web-subscribe';
+@import 'web-components/web-tabs';
 
 /// UTILITY CLASSES
 @import 'utilities/all-center';
 @import 'utilities/avatar';
+@import 'utilities/docked-actions';
 @import 'utilities/flow';
 @import 'utilities/focus-ring';
 @import 'utilities/region';
+@import 'utilities/over-scroll';
 @import 'utilities/scrollbar';
 @import 'utilities/visually-hidden';
 @import 'utilities/wrapper';
@@ -715,12 +779,25 @@ web-copy-code {
 @import 'pages/landing-page';
 @import 'pages/learn';
 @import 'pages/measure';
-
-// The prototype file is for temporary prototyping
-@import 'prototype';
+@import 'pages/path';
+@import 'pages/pattern';
 
 // Temporary rollout patches
 @import 'rollout';
+
+// Import unresolved states for lit-elements
+@import 'unresolved';
+
+/// LEGACY EXTENSIONS
+/// These elements are everywhere and to replace them site-wide would be
+/// a massive project, so they use @extend to pick up new styles
+.w-visually-hidden {
+  @extend .visually-hidden;
+}
+
+.w-columns {
+  @extend .switcher;
+}
 
 // Render gorko utilities
 @include generate-utility-classes();
